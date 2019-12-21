@@ -18,7 +18,10 @@ from django.urls import path
 from django.conf import settings  # for getting image
 from django.conf.urls.static import static  # for getting image
 
+import jobs.views # getting views from job app
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', jobs.views.home, name='home'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # for getting image
