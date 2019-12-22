@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Inderdev</title>
+    <title>{{Blog.title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -57,58 +57,41 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
+                    <li class="nav-item">
                         <a class="nav-link" href="http://twitter.com/inderdevkumar8">Twitter</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+                        <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                     </li>
                     
                 </ul>
             </div>
-        </nav>
+        </nav> 
 
     </header>
 
     <main role="main">
+        
+        <div class="row">
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1>Hi, I am Inderdev</h1>
-                <p class="lead text-muted">Infotainment Automotive Engineer with 2 years of hardware and software troubleshooting experience. Strong understanding of test rack configuration including ECUs wiring connections. In-depth knowledge of ECUs functionalities, Confluence, MYSQL, Python. Capable professional with a keen eye for multi-tasking capabilities.</p>
-                <p>
-                    <a href="http://gmail.com/indra0102thetiger@gmail.com" class="btn btn-primary my-2">Email Me</a>                   
-                </p>
-                <img class="rounded-circle" src="{% static 'resume.png' %}" alt="Image" height="250" width="300" />
+            <div class="text-center">
+            <h2><b>{{Blog.title}}</b></h2>
+            <h3>{{Blog.date}}</h3>
+            <br/> <br/>
+            <img src="{{Blog.image.url}}" alt="Image" width="500" height="400" />
+            <br/> <br/>
+            <p>{{Blog.body}}</p>
+            
+        
             </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row">
-                    {% for job in jobs_list.all %}
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header"><h2><b>{{job.title}}</b></h2>
-                            </div>
-                            <img class="card-img-top" src="{{job.image.url}}" alt="Image" width="350" height="250"/>
-                            <div class="card-body">
-                              
-                              <p class="card-text">{{job.summary}}</p>
-                              <a href="#" class="btn btn-primary">Visit My {{job.title}} Project </a>
-                            </div>
-                          </div>
-                    </div>
-                    {% endfor %}                         
-                </div>
-            </div>
+          
         </div>
+            
 
+            
     </main>
 
     <footer class="text-muted">
